@@ -1,0 +1,67 @@
+$border-color-default: #c0c4cc;
+$border-color-focus: #409EFF;
+
+$single-row-height: 40px;
+$icon-padding: 5px;
+$icon-width: 30px;
+$el-normal-padding: 0 14px;
+
+$form-item-vertical-length: 10px;
+$form-item-horizontal-length: 30px;
+
+%flex {
+    flex: auto;
+    display: flex;
+}
+
+.d-form-normal {
+    padding-bottom: 20px;
+
+    .d-form-row {
+        display: flex;
+        padding-bottom: 20px;
+    }
+
+    .d-form-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left:-$form-item-horizontal-length;
+        margin-right: -$form-item-horizontal-length;
+    }
+    .d-form-item {
+        padding: $form-item-vertical-length $form-item-horizontal-length;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        .item-label {
+            flex: none;
+            width: 80px;
+            margin-right: 10px; 
+        }
+
+        .item-el {
+            flex: auto;
+        }
+        
+        
+    }
+    &.label-right .d-form-item .item-label{
+        text-align: right;
+    }
+
+    &.label-top .d-form-item {
+        flex-direction: column;
+        align-items: stretch;
+        .item-label {
+            margin-bottom: 6px;
+        }
+    }
+
+
+    @for $i from 1 through 5 {
+        &.column-#{$i} .d-form-item { width: 100% / $i; }
+    }
+}
+
+
+
