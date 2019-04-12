@@ -63,13 +63,17 @@ export default {
         },
         showXBar() {
             return this.barSizeX !== "100%";
-        },
+        }
     },
     mounted() {
-        this.calcBarSize();
+        this.$nextTick(this.calcBarSize);
+        addResizeListener(this.$refs.scrollEl, this.calcBarSize);
     },
     updated() {
         this.calcBarSize();
+    },
+    beforeDestroy() {
+        removeResizeListener(this.$refs.scrollEl, this.calcBarSize);
     }
 };
 </script>
